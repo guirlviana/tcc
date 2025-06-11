@@ -81,6 +81,129 @@
 			font-size: 10px;
 			box-shadow: 0 0 5px rgba(0,0,0,0.1);
 		}
+		
+		/* Novos estilos com problemas de acessibilidade */
+		.carrossel {
+			overflow-x: auto;
+			white-space: nowrap;
+			margin: 20px 0;
+		}
+		
+		.carrossel-item {
+			display: inline-block;
+			width: 200px;
+			height: 150px;
+			background: #c0c0c0;
+			margin-right: 10px;
+			color: #a9a9a9;
+			text-align: center;
+			line-height: 150px;
+		}
+		
+		.tabs {
+			margin: 20px 0;
+		}
+		
+		.tab-buttons span {
+			display: inline-block;
+			padding: 5px 10px;
+			background: #d8d8d8;
+			color: #999;
+			margin-right: 5px;
+			cursor: pointer;
+			font-size: 11px;
+		}
+		
+		.tab-content {
+			padding: 10px;
+			background: #e5e5e5;
+			color: #b0b0b0;
+		}
+		
+		.modal-trigger {
+			font-size: 10px;
+			color: #aaa;
+			text-decoration: underline;
+			cursor: pointer;
+		}
+		
+		.captcha {
+			margin: 15px 0;
+			background: #e0e0e0;
+			padding: 10px;
+			font-size: 10px;
+			color: #b5b5b5;
+		}
+		
+		.video-container {
+			margin: 20px 0;
+		}
+		
+		.social-icons {
+			margin: 15px 0;
+		}
+		
+		.social-icons span {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			background: #ccc;
+			color: #999;
+			text-align: center;
+			line-height: 20px;
+			margin-right: 5px;
+			font-size: 10px;
+			cursor: pointer;
+		}
+		
+		.dropdown {
+			position: relative;
+			display: inline-block;
+		}
+		
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #e8e8e8;
+			min-width: 120px;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+			z-index: 1;
+		}
+		
+		.dropdown-content div {
+			color: #b0b0b0;
+			padding: 8px 10px;
+			font-size: 10px;
+			cursor: pointer;
+		}
+		
+		.dropdown:hover .dropdown-content {
+			display: block;
+		}
+		
+		.tooltip {
+			position: relative;
+		}
+		
+		.tooltip .tooltip-text {
+			visibility: hidden;
+			width: 120px;
+			background-color: #d0d0d0;
+			color: #a0a0a0;
+			text-align: center;
+			padding: 5px;
+			border-radius: 3px;
+			position: absolute;
+			z-index: 1;
+			bottom: 125%;
+			left: 50%;
+			margin-left: -60px;
+			font-size: 9px;
+		}
+		
+		.tooltip:hover .tooltip-text {
+			visibility: visible;
+		}
 	</style>
 </head>
 
@@ -109,11 +232,43 @@
 			PROMOÇÃO ESPECIAL - Confira nossas ofertas limitadas antes que acabem!
 		</div>
 
+		<!-- Carrossel inacessível -->
+		<div class="carrossel">
+			<div class="carrossel-item">Item 1</div>
+			<div class="carrossel-item">Item 2</div>
+			<div class="carrossel-item">Item 3</div>
+			<div class="carrossel-item">Item 4</div>
+			<div class="carrossel-item">Item 5</div>
+			<div class="carrossel-item">Item 6</div>
+		</div>
+
+		<!-- Tabs inacessíveis -->
+		<div class="tabs">
+			<div class="tab-buttons">
+				<span onclick="alert('Tab 1')">Informações</span>
+				<span onclick="alert('Tab 2')">Detalhes</span>
+				<span onclick="alert('Tab 3')">Avaliações</span>
+			</div>
+			<div class="tab-content">
+				Conteúdo da tab ativa. Clique nas tabs acima para navegar.
+			</div>
+		</div>
+
 		<div class="bloco">
 			<h4>Seção 1</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
 			<img src="https://placehold.co/800x300">
 			<button class="botao">&#9733;</button>
+		</div>
+
+		<!-- Dropdown inacessível -->
+		<div class="dropdown">
+			<div style="background:#d5d5d5; color:#999; padding:5px; font-size:11px;">Menu Dropdown</div>
+			<div class="dropdown-content">
+				<div>Opção A</div>
+				<div>Opção B</div>
+				<div>Opção C</div>
+			</div>
 		</div>
 
 		<!-- Novo bloco com problemas de acessibilidade -->
@@ -127,6 +282,25 @@
 			</div>
 		</div>
 
+		<!-- Tooltips inacessíveis -->
+		<div style="margin:20px 0;">
+			<div class="tooltip">Passe o mouse aqui
+				<span class="tooltip-text">Informação adicional que aparece apenas no hover</span>
+			</div>
+		</div>
+
+		<!-- Vídeo sem controles acessíveis -->
+		<div class="video-container">
+			<div>Vídeo demonstrativo:</div>
+			<img src="https://placehold.co/800x450/ccc/999?text=Video">
+			<div style="display:flex; gap:5px; margin-top:5px;">
+				<button style="background:#ddd; border:none; color:#999; padding:3px; font-size:10px;">▶</button>
+				<button style="background:#ddd; border:none; color:#999; padding:3px; font-size:10px;">⏸</button>
+				<button style="background:#ddd; border:none; color:#999; padding:3px; font-size:10px;">⏹</button>
+				<div style="flex-grow:1; height:10px; background:#ccc; margin-top:5px;"></div>
+			</div>
+		</div>
+
 		<!-- Formulário sem labels adequados -->
 		<div class="form">
 			<h5>Newsletter</h5>
@@ -136,8 +310,25 @@
 			<button style="background:#ccc; color:#999; border:none; padding:5px;">Enviar</button>
 		</div>
 
-		<!-- Restante dos blocos originais... -->
-		<!-- ... -->
+		<!-- CAPTCHA inacessível -->
+		<div class="captcha">
+			<div>Prove que você não é um robô:</div>
+			<img src="https://placehold.co/150x50/ccc/999?text=CAPTCHA">
+			<input type="text" placeholder="Digite os caracteres acima" style="width:150px; margin-top:5px; font-size:10px;">
+		</div>
+
+		<!-- Ícones de redes sociais sem texto alternativo -->
+		<div class="social-icons">
+			<span>f</span>
+			<span>t</span>
+			<span>in</span>
+			<span>ig</span>
+		</div>
+
+		<!-- Modal trigger inacessível -->
+		<div style="margin:15px 0;">
+			<span class="modal-trigger" onclick="alert('Modal aberto!')">Abrir termos e condições</span>
+		</div>
 
 		<div class="bloco">
 			<h4>Seção 2</h4>
@@ -268,6 +459,41 @@
 	<div style="margin:20px;">
 		<div>Nossa localização:</div>
 		<img src="https://placehold.co/600x300/ccc/999?text=Mapa">
+	</div>
+	
+	<!-- Tabela inacessível -->
+	<div style="margin:20px;">
+		<div>Horário de funcionamento:</div>
+		<table style="border-collapse:collapse; width:100%; font-size:10px; color:#999;">
+			<tr style="background:#d5d5d5;">
+				<td style="padding:5px;">Segunda</td>
+				<td style="padding:5px;">9h - 18h</td>
+			</tr>
+			<tr style="background:#e0e0e0;">
+				<td style="padding:5px;">Terça</td>
+				<td style="padding:5px;">9h - 18h</td>
+			</tr>
+			<tr style="background:#d5d5d5;">
+				<td style="padding:5px;">Quarta</td>
+				<td style="padding:5px;">9h - 18h</td>
+			</tr>
+			<tr style="background:#e0e0e0;">
+				<td style="padding:5px;">Quinta</td>
+				<td style="padding:5px;">9h - 18h</td>
+			</tr>
+			<tr style="background:#d5d5d5;">
+				<td style="padding:5px;">Sexta</td>
+				<td style="padding:5px;">9h - 18h</td>
+			</tr>
+			<tr style="background:#e0e0e0;">
+				<td style="padding:5px;">Sábado</td>
+				<td style="padding:5px;">9h - 18h</td>
+			</tr>
+			<tr style="background:#d5d5d5;">
+				<td style="padding:5px;">Domingo</td>
+				<td style="padding:5px;">9h - 18h</td>
+			</tr>
+		</table>
 	</div>
 </body>
 
