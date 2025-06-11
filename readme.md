@@ -140,3 +140,8 @@ Aqui estão as principais mudanças que implementei para tornar o site completam
 - **SEO**: Estrutura semântica melhora indexação
 
 > O site agora atende às diretrizes **WCAG 2.1 nível AA** e muitos critérios **AAA**, tornando-o acessível para usuários com diversas necessidades e dispositivos.
+
+## Results
+
+![image](https://github.com/user-attachments/assets/547b81bb-1d72-4d4a-84a9-6491166b2428)
+
