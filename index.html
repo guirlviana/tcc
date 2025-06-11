@@ -5,20 +5,46 @@
 	<title>Meu Site Mal Acessível</title>
 	<style>
 		body {
-			background-color: #ddd;
-			color: #888;
+			background-color: #f0f0f0;
+			/* Contraste melhorado */
+			color: #333;
+			/* Contraste melhorado */
 			font-family: Arial, sans-serif;
-			font-size: 12px;
+			font-size: 16px;
+			/* Tamanho da fonte ajustado para melhor legibilidade */
+			line-height: 1.5;
+			/* Altura da linha para melhor leitura */
 		}
 
 		.topo {
-			background: #ccc;
+			background: #e0e0e0;
+			/* Contraste melhorado */
 			padding: 20px;
 		}
 
-		.topo div {
+		.topo a {
+			/* Alterado de div para a */
 			display: inline-block;
 			margin-right: 30px;
+			color: #333;
+			/* Contraste melhorado */
+			text-decoration: none;
+			font-size: 18px;
+			/* Tamanho da fonte ajustado */
+			padding: 5px 0;
+			/* Adicionado padding para área de clique */
+		}
+
+		.topo a:focus,
+		.mini-menu a:focus,
+		.botao:focus,
+		.form button:focus,
+		.social-icons a:focus,
+		.modal-trigger:focus,
+		.tab-buttons button:focus {
+			outline: 3px solid #007bff;
+			/* Indicador de foco visível */
+			outline-offset: 2px;
 		}
 
 		.conteudo {
@@ -32,531 +58,963 @@
 		.bloco img {
 			width: 100%;
 			height: auto;
+			display: block;
+			/* Garante que a imagem ocupe a largura total */
 		}
 
 		.botao {
 			background: none;
-			border: none;
+			border: 2px solid #007bff;
+			/* Borda para contraste */
 			font-size: 20px;
-			color: #444;
+			color: #007bff;
+			/* Cor para contraste */
+			padding: 10px 15px;
+			/* Tamanho da área de clique */
+			cursor: pointer;
+			border-radius: 5px;
 		}
 
 		.form {
 			margin-top: 30px;
 		}
 
-		.form input {
+		.form input[type="text"],
+		.form input[type="email"] {
 			display: block;
 			margin-bottom: 10px;
 			width: 300px;
-			height: 25px;
+			height: 35px;
+			/* Altura ajustada */
+			padding: 5px 10px;
+			border: 1px solid #ccc;
+			font-size: 16px;
+			/* Tamanho da fonte ajustado */
+			color: #333;
+			/* Contraste melhorado */
 		}
-		
+
+		.form input[type="checkbox"] {
+			margin-right: 10px;
+			width: 20px;
+			height: 20px;
+			vertical-align: middle;
+		}
+
+		.form label {
+			display: block;
+			margin-bottom: 5px;
+			font-size: 16px;
+			color: #333;
+		}
+
 		/* Estilos com baixo contraste adicionais */
 		.destaque {
-			background-color: #c9c9c9;
-			color: #a0a0a0;
-			padding: 10px;
-			font-size: 11px;
+			background-color: #f5f5f5;
+			/* Contraste melhorado */
+			color: #333;
+			/* Contraste melhorado */
+			padding: 15px;
+			/* Padding ajustado */
+			font-size: 16px;
+			/* Tamanho da fonte ajustado */
+			border-left: 5px solid #007bff;
+			/* Destaque visual */
 		}
-		
+
 		.mini-menu {
-			background-color: #e0e0e0;
-			padding: 5px;
+			background-color: #f0f0f0;
+			/* Contraste melhorado */
+			padding: 10px;
 		}
-		
-		.mini-menu span {
-			color: #b8b8b8;
+
+		.mini-menu a {
+			/* Alterado de span para a */
+			color: #555;
+			/* Contraste melhorado */
 			margin: 0 10px;
 			cursor: pointer;
+			text-decoration: none;
+			font-size: 16px;
+			/* Tamanho da fonte ajustado */
+			padding: 5px;
+			/* Adicionado padding para área de clique */
+			border-bottom: 2px solid transparent;
 		}
-		
+
+		.mini-menu a:hover {
+			border-bottom: 2px solid #007bff;
+		}
+
 		.popup {
 			position: fixed;
 			top: 50px;
 			right: 50px;
-			background: #d5d5d5;
-			color: #999;
+			background: #f0f0f0;
+			/* Contraste melhorado */
+			color: #444;
+			/* Contraste melhorado */
 			padding: 15px;
-			font-size: 10px;
-			box-shadow: 0 0 5px rgba(0,0,0,0.1);
+			font-size: 14px;
+			/* Tamanho da fonte ajustado */
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+			/* Sombra mais visível */
+			border-radius: 8px;
+			z-index: 1000;
+			/* Garante que fique acima de outros elementos */
 		}
-		
+
+		.popup button {
+			/* Estilo do botão de fechar */
+			background: none;
+			border: none;
+			color: #777;
+			font-size: 20px;
+			cursor: pointer;
+			position: absolute;
+			top: 5px;
+			right: 10px;
+			padding: 5px;
+			line-height: 1;
+		}
+
 		/* Novos estilos com problemas de acessibilidade */
 		.carrossel {
 			overflow-x: auto;
 			white-space: nowrap;
 			margin: 20px 0;
+			padding-bottom: 10px;
+			/* Para scrollbar */
+			border: 1px solid #eee;
+			/* Borda para visibilidade */
 		}
-		
+
 		.carrossel-item {
 			display: inline-block;
-			width: 200px;
-			height: 150px;
-			background: #c0c0c0;
-			margin-right: 10px;
-			color: #a9a9a9;
+			width: 250px;
+			/* Largura ajustada */
+			height: 180px;
+			/* Altura ajustada */
+			background: #e0e0e0;
+			/* Contraste melhorado */
+			margin-right: 15px;
+			/* Espaçamento ajustado */
+			color: #555;
+			/* Contraste melhorado */
 			text-align: center;
-			line-height: 150px;
+			line-height: 180px;
+			/* Ajustado para nova altura */
+			border-radius: 5px;
 		}
-		
+
 		.tabs {
 			margin: 20px 0;
 		}
-		
-		.tab-buttons span {
+
+		.tab-buttons {
+			border-bottom: 2px solid #eee;
+			margin-bottom: 15px;
+		}
+
+		.tab-buttons button {
+			/* Alterado de span para button */
 			display: inline-block;
-			padding: 5px 10px;
-			background: #d8d8d8;
-			color: #999;
+			padding: 10px 15px;
+			/* Padding ajustado */
+			background: #e0e0e0;
+			/* Contraste melhorado */
+			color: #555;
+			/* Contraste melhorado */
 			margin-right: 5px;
 			cursor: pointer;
-			font-size: 11px;
+			font-size: 14px;
+			/* Tamanho da fonte ajustado */
+			border: none;
+			border-radius: 5px 5px 0 0;
 		}
-		
+
+		.tab-buttons button[aria-selected="true"] {
+			background: #f5f5f5;
+			color: #333;
+			border-bottom: 2px solid #007bff;
+		}
+
 		.tab-content {
-			padding: 10px;
-			background: #e5e5e5;
-			color: #b0b0b0;
+			padding: 15px;
+			/* Padding ajustado */
+			background: #f5f5f5;
+			/* Contraste melhorado */
+			color: #333;
+			/* Contraste melhorado */
+			border: 1px solid #eee;
+			border-top: none;
+			border-radius: 0 0 5px 5px;
+			min-height: 100px;
+			/* Altura mínima para conteúdo */
 		}
-		
+
 		.modal-trigger {
-			font-size: 10px;
-			color: #aaa;
+			font-size: 14px;
+			/* Tamanho da fonte ajustado */
+			color: #007bff;
+			/* Contraste melhorado */
 			text-decoration: underline;
 			cursor: pointer;
+			background: none;
+			border: none;
+			padding: 0;
 		}
-		
+
 		.captcha {
 			margin: 15px 0;
-			background: #e0e0e0;
-			padding: 10px;
-			font-size: 10px;
-			color: #b5b5b5;
+			background: #f0f0f0;
+			/* Contraste melhorado */
+			padding: 15px;
+			font-size: 14px;
+			/* Tamanho da fonte ajustado */
+			color: #555;
+			/* Contraste melhorado */
+			border-radius: 5px;
 		}
-		
+
+		.captcha img {
+			border: 1px solid #ccc;
+			margin-bottom: 10px;
+		}
+
+		.captcha input {
+			height: 35px;
+			padding: 5px 10px;
+			font-size: 16px;
+			border: 1px solid #ccc;
+			color: #333;
+		}
+
 		.video-container {
 			margin: 20px 0;
+			background-color: #eee;
+			padding: 15px;
+			border-radius: 5px;
 		}
-		
+
+		.video-container img {
+			margin-bottom: 10px;
+			width: 100%;
+			height: auto;
+		}
+
+		.video-controls {
+			display: flex;
+			gap: 10px;
+			margin-top: 5px;
+		}
+
+		.video-controls button {
+			background: #e0e0e0;
+			border: 1px solid #ccc;
+			color: #555;
+			padding: 8px 12px;
+			/* Tamanho ajustado */
+			font-size: 14px;
+			/* Tamanho da fonte ajustado */
+			cursor: pointer;
+			border-radius: 4px;
+		}
+
+		.video-controls button:hover {
+			background-color: #d0d0d0;
+		}
+
 		.social-icons {
 			margin: 15px 0;
 		}
-		
-		.social-icons span {
+
+		.social-icons a {
+			/* Alterado de span para a */
 			display: inline-block;
-			width: 20px;
-			height: 20px;
-			background: #ccc;
-			color: #999;
+			width: 35px;
+			/* Tamanho da área de clique */
+			height: 35px;
+			/* Tamanho da área de clique */
+			background: #e0e0e0;
+			/* Contraste melhorado */
+			color: #555;
+			/* Contraste melhorado */
 			text-align: center;
-			line-height: 20px;
-			margin-right: 5px;
-			font-size: 10px;
+			line-height: 35px;
+			/* Alinhamento vertical */
+			margin-right: 8px;
+			font-size: 16px;
+			/* Tamanho da fonte ajustado */
 			cursor: pointer;
+			border-radius: 50%;
+			/* Torna-os circulares */
+			text-decoration: none;
 		}
-		
+
+		.social-icons a:hover {
+			background-color: #d0d0d0;
+		}
+
 		.dropdown {
 			position: relative;
 			display: inline-block;
+			margin-top: 20px;
 		}
-		
+
+		.dropdown-button {
+			/* Botão que abre o dropdown */
+			background: #f0f0f0;
+			/* Contraste melhorado */
+			color: #555;
+			/* Contraste melhorado */
+			padding: 10px 15px;
+			/* Padding ajustado */
+			font-size: 16px;
+			/* Tamanho da fonte ajustado */
+			border: 1px solid #ccc;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+
+		.dropdown-button:focus {
+			outline: 3px solid #007bff;
+			outline-offset: 2px;
+		}
+
 		.dropdown-content {
 			display: none;
 			position: absolute;
-			background-color: #e8e8e8;
-			min-width: 120px;
-			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+			background-color: #f5f5f5;
+			/* Contraste melhorado */
+			min-width: 150px;
+			/* Largura ajustada */
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+			/* Sombra mais visível */
 			z-index: 1;
+			border-radius: 5px;
+			border: 1px solid #eee;
 		}
-		
-		.dropdown-content div {
-			color: #b0b0b0;
-			padding: 8px 10px;
-			font-size: 10px;
+
+		.dropdown-content a {
+			/* Alterado de div para a */
+			color: #333;
+			/* Contraste melhorado */
+			padding: 10px 15px;
+			/* Padding ajustado */
+			font-size: 14px;
+			/* Tamanho da fonte ajustado */
 			cursor: pointer;
+			display: block;
+			text-decoration: none;
 		}
-		
-		.dropdown:hover .dropdown-content {
+
+		.dropdown-content a:hover {
+			background-color: #e0e0e0;
+		}
+
+		.dropdown:hover .dropdown-content,
+		.dropdown.active .dropdown-content {
+			/* Adicionado .active para controle via JS */
 			display: block;
 		}
-		
+
 		.tooltip {
 			position: relative;
+			display: inline-block;
+			border-bottom: 1px dotted #555;
+			/* Indicador visual */
+			cursor: help;
+			padding: 2px 0;
 		}
-		
+
 		.tooltip .tooltip-text {
 			visibility: hidden;
-			width: 120px;
-			background-color: #d0d0d0;
-			color: #a0a0a0;
+			width: 150px;
+			/* Largura ajustada */
+			background-color: #e0e0e0;
+			/* Contraste melhorado */
+			color: #333;
+			/* Contraste melhorado */
 			text-align: center;
-			padding: 5px;
-			border-radius: 3px;
+			padding: 8px;
+			/* Padding ajustado */
+			border-radius: 5px;
 			position: absolute;
 			z-index: 1;
 			bottom: 125%;
 			left: 50%;
-			margin-left: -60px;
-			font-size: 9px;
+			margin-left: -75px;
+			/* Ajustado para nova largura */
+			font-size: 12px;
+			/* Tamanho da fonte ajustado */
+			opacity: 0;
+			transition: opacity 0.3s;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 		}
-		
-		.tooltip:hover .tooltip-text {
+
+		.tooltip:hover .tooltip-text,
+		.tooltip:focus-within .tooltip-text {
+			/* focus-within para acessibilidade de teclado */
 			visibility: visible;
+			opacity: 1;
 		}
-		
+
 		/* Estilos adicionais com problemas de performance */
-		@font-face {
+		/* @font-face {
 			font-family: 'CustomFont';
 			src: url('https://example.com/fonts/customfont.woff2');
-			font-display: block; /* Causa FOIT - Flash of Invisible Text */
+			font-display: swap; /* Alterado para swap para evitar FOIT/FOUT */
 		}
-		
-		.custom-font-text {
-			font-family: 'CustomFont', sans-serif;
+
+		*/ .custom-font-text {
+			/* font-family: 'CustomFont', sans-serif; */
+			/* Removido para demonstração, mas seria aqui */
+			font-size: 1.2em;
+			margin-top: 20px;
+			padding: 10px;
+			background-color: #f8f8f8;
+			border-left: 3px solid #ccc;
 		}
-		
+
 		.animated-element {
 			width: 100px;
 			height: 100px;
-			background-color: #ccc;
+			background-color: #a0a0a0;
+			/* Contraste melhorado */
 			animation: pulse 2s infinite;
-			will-change: transform; /* Uso desnecessário */
+			/* will-change: transform; */
+			/* Uso desnecessário removido */
+			margin: 30px auto;
+			border-radius: 10px;
 		}
-		
+
 		@keyframes pulse {
-			0% { transform: scale(1); }
-			50% { transform: scale(1.1); }
-			100% { transform: scale(1); }
+			0% {
+				transform: scale(1);
+			}
+
+			50% {
+				transform: scale(1.1);
+			}
+
+			100% {
+				transform: scale(1);
+			}
 		}
-		
+
 		.large-image-container {
 			margin: 20px 0;
 		}
-		
+
 		.large-image-container img {
 			width: 100%;
 			height: auto;
 		}
-		
+
 		.animated-gif-container {
 			margin: 20px 0;
+			background-color: #eee;
+			padding: 15px;
+			border-radius: 5px;
+		}
+
+		.sr-only {
+			/* Classe para conteúdo visível apenas para leitores de tela */
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			white-space: nowrap;
+			border: 0;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 15px;
+			font-size: 14px;
+			color: #333;
+		}
+
+		th,
+		td {
+			border: 1px solid #ccc;
+			padding: 10px;
+			text-align: left;
+		}
+
+		th {
+			background-color: #e0e0e0;
+			font-weight: bold;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f0f0f0;
+			/* Contraste melhorado */
+		}
+
+		tr:nth-child(odd) {
+			background-color: #e8e8e8;
+			/* Contraste melhorado */
+		}
+
+		caption {
+			font-size: 1.2em;
+			margin-bottom: 10px;
+			font-weight: bold;
+			text-align: left;
+			color: #333;
 		}
 	</style>
-	<!-- Webfonts carregadas de forma ineficiente -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
-	<!-- JavaScript legado -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
 	<script>
-		document.write('<script src="https://example.com/legacy-script.js"><\/script>');
+		document.addEventListener('DOMContentLoaded', function () {
+			// Acessibilidade para o Popup
+			const popup = document.querySelector('.popup');
+			const popupCloseButton = popup ? popup.querySelector('button') : null;
+
+			if (popupCloseButton) {
+				popupCloseButton.addEventListener('click', function () {
+					popup.style.display = 'none';
+				});
+
+				// Fechar popup com ESC
+				document.addEventListener('keydown', function (event) {
+					if (event.key === 'Escape' && popup.style.display !== 'none') {
+						popup.style.display = 'none';
+					}
+				});
+			}
+
+			// Acessibilidade para Tabs
+			const tabButtonsContainer = document.querySelector('.tab-buttons');
+			const tabContents = document.querySelectorAll('.tab-content');
+
+			if (tabButtonsContainer && tabContents.length > 0) {
+				const tabButtons = tabButtonsContainer.querySelectorAll('button');
+
+				tabButtons.forEach((button, index) => {
+					button.setAttribute('role', 'tab');
+					button.setAttribute('aria-controls', `panel-${index}`);
+					tabContents[index].setAttribute('id', `panel-${index}`);
+					tabContents[index].setAttribute('role', 'tabpanel');
+					tabContents[index].setAttribute('aria-labelledby', `tab-${index}`);
+					button.setAttribute('id', `tab-${index}`);
+
+					button.addEventListener('click', () => {
+						tabButtons.forEach(btn => btn.setAttribute('aria-selected', 'false'));
+						button.setAttribute('aria-selected', 'true');
+						tabContents.forEach(content => content.style.display = 'none');
+						tabContents[index].style.display = 'block';
+					});
+
+					// Ativa a primeira tab por padrão
+					if (index === 0) {
+						button.setAttribute('aria-selected', 'true');
+						tabContents[index].style.display = 'block';
+					} else {
+						tabContents[index].style.display = 'none';
+					}
+				});
+			}
+
+			// Acessibilidade para Dropdown
+			const dropdown = document.querySelector('.dropdown');
+			const dropdownButton = document.querySelector('.dropdown-button');
+			const dropdownContent = document.querySelector('.dropdown-content');
+
+			if (dropdown && dropdownButton && dropdownContent) {
+				dropdownButton.setAttribute('aria-haspopup', 'true');
+				dropdownButton.setAttribute('aria-expanded', 'false');
+				dropdownContent.setAttribute('role', 'menu');
+
+				dropdownButton.addEventListener('click', function () {
+					const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+					this.setAttribute('aria-expanded', !expanded);
+					dropdownContent.style.display = expanded ? 'none' : 'block';
+					dropdown.classList.toggle('active', !expanded); // Para controle via CSS :hover
+
+					// Foca no primeiro item do dropdown se ele for aberto
+					if (!expanded) {
+						dropdownContent.querySelector('a')?.focus();
+					}
+				});
+
+				// Fechar dropdown ao clicar fora
+				document.addEventListener('click', function (event) {
+					if (!dropdown.contains(event.target)) {
+						dropdownButton.setAttribute('aria-expanded', 'false');
+						dropdownContent.style.display = 'none';
+						dropdown.classList.remove('active');
+					}
+				});
+
+				// Navegação do dropdown com teclado
+				dropdownContent.addEventListener('keydown', function (event) {
+					const focusableItems = Array.from(dropdownContent.querySelectorAll('a'));
+					const focusedItemIndex = focusableItems.indexOf(document.activeElement);
+
+					if (event.key === 'ArrowDown') {
+						event.preventDefault();
+						if (focusedItemIndex < focusableItems.length - 1) {
+							focusableItems[focusedItemIndex + 1].focus();
+						} else {
+							focusableItems[0].focus(); // Volta para o início
+						}
+					} else if (event.key === 'ArrowUp') {
+						event.preventDefault();
+						if (focusedItemIndex > 0) {
+							focusableItems[focusedItemIndex - 1].focus();
+						} else {
+							focusableItems[focusableItems.length - 1].focus(); // Vai para o final
+						}
+					} else if (event.key === 'Escape') {
+						dropdownButton.setAttribute('aria-expanded', 'false');
+						dropdownContent.style.display = 'none';
+						dropdown.classList.remove('active');
+						dropdownButton.focus(); // Retorna o foco para o botão
+					}
+				});
+			}
+
+			// Acessibilidade para Modal (apenas gatilho para esta demonstração)
+			const modalTrigger = document.querySelector('.modal-trigger');
+			if (modalTrigger) {
+				modalTrigger.setAttribute('aria-haspopup', 'dialog');
+				modalTrigger.setAttribute('aria-expanded', 'false');
+				modalTrigger.addEventListener('click', function () {
+					alert('Modal aberto! Em uma implementação real, o modal abriria aqui.');
+					// Em uma implementação real, aria-expanded seria toggleado
+					// modalTrigger.setAttribute('aria-expanded', 'true');
+				});
+			}
+
+			// Acessibilidade para Tooltip
+			const tooltips = document.querySelectorAll('.tooltip');
+			tooltips.forEach((tooltip, index) => {
+				const tooltipText = tooltip.querySelector('.tooltip-text');
+				if (tooltipText) {
+					const id = `tooltip-${index}`;
+					tooltipText.setAttribute('id', id);
+					tooltip.setAttribute('aria-describedby', id);
+					tooltip.setAttribute('tabindex', '0'); // Torna o elemento focável para exibir tooltip
+				}
+			});
+		});
 	</script>
 </head>
 
 <body>
+	<h1 class="sr-only">Meu Site Mal Acessível - Versão Otimizada</h1>
 
-	<div class="topo">
-		<div>Início</div>
-		<div>Empresa</div>
-		<div>Serviços</div>
-		<div>Contato</div>
-	</div>
-	
-	<div class="mini-menu">
-		<span onclick="alert('Clicou!')">Opção 1</span>
-		<span onclick="alert('Clicou!')">Opção 2</span>
-		<span onclick="alert('Clicou!')">Opção 3</span>
-	</div>
+	<nav class="topo" aria-label="Navegação Principal">
+		<a href="#">Início</a>
+		<a href="#">Empresa</a>
+		<a href="#">Serviços</a>
+		<a href="#">Contato</a>
+	</nav>
 
-	<div class="popup">
+	<nav class="mini-menu" aria-label="Menu Secundário">
+		<a href="#" onclick="alert('Clicou na Opção 1!')" role="button">Opção 1</a>
+		<a href="#" onclick="alert('Clicou na Opção 2!')" role="button">Opção 2</a>
+		<a href="#" onclick="alert('Clicou na Opção 3!')" role="button">Opção 3</a>
+	</nav>
+
+	<div class="popup" role="dialog" aria-modal="true" aria-label="Aceite de Cookies">
 		Aceite nossos cookies para melhor experiência!
-		<button onclick="this.parentNode.style.display='none'">x</button>
+		<button type="button" onclick="this.parentNode.style.display='none'" aria-label="Fechar mensagem">x</button>
 	</div>
 
-	<div class="conteudo">
-		<div class="destaque">
+	<main class="conteudo">
+		<section class="destaque">
 			PROMOÇÃO ESPECIAL - Confira nossas ofertas limitadas antes que acabem!
-		</div>
+		</section>
 
-		<!-- Carrossel inacessível -->
-		<div class="carrossel">
-			<div class="carrossel-item">Item 1</div>
-			<div class="carrossel-item">Item 2</div>
-			<div class="carrossel-item">Item 3</div>
-			<div class="carrossel-item">Item 4</div>
-			<div class="carrossel-item">Item 5</div>
-			<div class="carrossel-item">Item 6</div>
-		</div>
+		<section class="carrossel" role="region" aria-label="Produtos em Destaque">
+			<div class="carrossel-item" role="group" aria-roledescription="slide">Item 1</div>
+			<div class="carrossel-item" role="group" aria-roledescription="slide">Item 2</div>
+			<div class="carrossel-item" role="group" aria-roledescription="slide">Item 3</div>
+			<div class="carrossel-item" role="group" aria-roledescription="slide">Item 4</div>
+			<div class="carrossel-item" role="group" aria-roledescription="slide">Item 5</div>
+			<div class="carrossel-item" role="group" aria-roledescription="slide">Item 6</div>
+		</section>
 
-		<!-- Tabs inacessíveis -->
-		<div class="tabs">
-			<div class="tab-buttons">
-				<span onclick="alert('Tab 1')">Informações</span>
-				<span onclick="alert('Tab 2')">Detalhes</span>
-				<span onclick="alert('Tab 3')">Avaliações</span>
+		<section class="tabs">
+			<div class="tab-buttons" role="tablist">
+				<button type="button" role="tab" aria-selected="true" aria-controls="panel-0">Informações</button>
+				<button type="button" role="tab" aria-selected="false" aria-controls="panel-1">Detalhes</button>
+				<button type="button" role="tab" aria-selected="false" aria-controls="panel-2">Avaliações</button>
 			</div>
-			<div class="tab-content">
-				Conteúdo da tab ativa. Clique nas tabs acima para navegar.
+			<div class="tab-content" id="panel-0" role="tabpanel" aria-labelledby="tab-0">
+				Conteúdo da tab de Informações. Clique nas tabs acima para navegar.
 			</div>
-		</div>
+			<div class="tab-content" id="panel-1" role="tabpanel" aria-labelledby="tab-1" style="display:none;">
+				Conteúdo da tab de Detalhes.
+			</div>
+			<div class="tab-content" id="panel-2" role="tabpanel" aria-labelledby="tab-2" style="display:none;">
+				Conteúdo da tab de Avaliações.
+			</div>
+		</section>
 
-		<!-- Imagem não otimizada e sem dimensões adequadas -->
 		<div class="large-image-container">
-			<img src="https://placehold.co/3000x2000" style="width:100%;">
+			<img src="https://placehold.co/3000x2000" alt="Exemplo de imagem grande no site" width="3000" height="2000" loading="lazy">
 		</div>
 
-		<!-- GIF animado em vez de vídeo -->
 		<div class="animated-gif-container">
-			<img src="https://placehold.co/800x600/ccc/999?text=Animated+GIF" style="width:100%;">
+			<p>Conteúdo animado (Recomendável usar vídeo em vez de GIF para melhor performance):</p>
+			<img src="https://placehold.co/800x600/ccc/999?text=Animated+GIF" alt="Exemplo de GIF animado" width="800" height="600" loading="lazy">
 		</div>
 
-		<!-- Animação não otimizada -->
 		<div class="animated-element"></div>
 
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 1</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/800x300" alt="Imagem descritiva da Seção 1" width="800" height="300" loading="lazy">
+			<button class="botao" type="button" aria-label="Avaliar item">&#9733;</button>
+		</section>
 
-		<!-- Dropdown inacessível -->
 		<div class="dropdown">
-			<div style="background:#d5d5d5; color:#999; padding:5px; font-size:11px;">Menu Dropdown</div>
+			<button type="button" class="dropdown-button" aria-expanded="false">Menu Dropdown</button>
 			<div class="dropdown-content">
-				<div>Opção A</div>
-				<div>Opção B</div>
-				<div>Opção C</div>
+				<a href="#">Opção A</a>
+				<a href="#">Opção B</a>
+				<a href="#">Opção C</a>
 			</div>
 		</div>
 
-		<!-- Novo bloco com problemas de acessibilidade -->
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Novidades</h4>
 			<div>Confira nosso novo produto revolucionário que vai mudar sua vida!</div>
-			<img src="https://placehold.co/800x300">
-			<div style="display:flex; gap:10px;">
-				<button style="background:#ddd; border:none; color:#999; padding:5px;">Comprar</button>
-				<button style="background:#ddd; border:none; color:#999; padding:5px;">+</button>
+			<img src="https://placehold.co/800x300" alt="Imagem do novo produto revolucionário" width="800" height="300" loading="lazy">
+			<div style="display:flex; gap:10px; margin-top: 15px;">
+				<button style="background:#f0f0f0; border:1px solid #ccc; color:#555; padding:8px 12px; border-radius: 5px;" type="button">Comprar</button>
+				<button style="background:#f0f0f0; border:1px solid #ccc; color:#555; padding:8px 12px; border-radius: 5px;" type="button"
+					aria-label="Adicionar ao carrinho">+</button>
 			</div>
-		</div>
+		</section>
 
-		<!-- Tooltips inacessíveis -->
 		<div style="margin:20px 0;">
-			<div class="tooltip">Passe o mouse aqui
-				<span class="tooltip-text">Informação adicional que aparece apenas no hover</span>
+			<div class="tooltip">Passe o mouse aqui <span class="sr-only">para ver informação adicional</span>
+				<span class="tooltip-text" role="tooltip">Informação adicional que aparece apenas no hover (ou foco)</span>
 			</div>
 		</div>
 
-		<!-- Vídeo sem controles acessíveis -->
 		<div class="video-container">
-			<div>Vídeo demonstrativo:</div>
-			<img src="https://placehold.co/800x450/ccc/999?text=Video">
-			<div style="display:flex; gap:5px; margin-top:5px;">
-				<button style="background:#ddd; border:none; color:#999; padding:3px; font-size:10px;">▶</button>
-				<button style="background:#ddd; border:none; color:#999; padding:3px; font-size:10px;">⏸</button>
-				<button style="background:#ddd; border:none; color:#999; padding:3px; font-size:10px;">⏹</button>
-				<div style="flex-grow:1; height:10px; background:#ccc; margin-top:5px;"></div>
+			<p>Vídeo demonstrativo:</p>
+			<img src="https://placehold.co/800x450/ccc/999?text=Video" alt="Placeholder de vídeo demonstrativo" width="800" height="450">
+			<div class="video-controls">
+				<button type="button" aria-label="Reproduzir vídeo">▶</button>
+				<button type="button" aria-label="Pausar vídeo">⏸</button>
+				<button type="button" aria-label="Parar vídeo">⏹</button>
+				<div style="flex-grow:1; height:10px; background:#ccc; margin-top:5px; border-radius: 5px;" aria-label="Barra de progresso do vídeo"></div>
 			</div>
 		</div>
 
-		<!-- Formulário sem labels adequados -->
-		<div class="form">
+		<form class="form">
 			<h5>Newsletter</h5>
-			<input type="text" placeholder="Nome">
-			<input type="email" placeholder="Email">
-			<input type="checkbox"> Aceito receber novidades
-			<button style="background:#ccc; color:#999; border:none; padding:5px;">Enviar</button>
-		</div>
+			<label for="nome">Nome:</label>
+			<input type="text" id="nome" placeholder="Seu nome" autocomplete="name">
+			<label for="email">Email:</label>
+			<input type="email" id="email" placeholder="seu.email@exemplo.com" autocomplete="email">
+			<div>
+				<input type="checkbox" id="aceitarNovidades">
+				<label for="aceitarNovidades" style="display: inline-block;">Aceito receber novidades</label>
+			</div>
+			<button style="background:#e0e0e0; color:#555; border:1px solid #ccc; padding:8px 15px; border-radius: 5px; margin-top: 10px;" type="submit">Enviar</button>
+		</form>
 
-		<!-- CAPTCHA inacessível -->
 		<div class="captcha">
 			<div>Prove que você não é um robô:</div>
-			<img src="https://placehold.co/150x50/ccc/999?text=CAPTCHA">
-			<input type="text" placeholder="Digite os caracteres acima" style="width:150px; margin-top:5px; font-size:10px;">
+			<img src="https://placehold.co/150x50/ccc/999?text=CAPTCHA" alt="Imagem CAPTCHA com caracteres para verificação" width="150" height="50">
+			<label for="captchaInput" class="sr-only">Digite os caracteres acima</label>
+			<input type="text" id="captchaInput" placeholder="Digite os caracteres acima" style="width:150px; margin-top:5px; font-size:14px;">
+			<p style="font-size: 12px; margin-top: 10px; color: #777;">Em um site real, seria recomendável usar um CAPTCHA acessível, como um reCAPTCHA com opção de áudio ou um
+				desafio de pergunta e resposta.</p>
 		</div>
 
-		<!-- Ícones de redes sociais sem texto alternativo -->
 		<div class="social-icons">
-			<span>f</span>
-			<span>t</span>
-			<span>in</span>
-			<span>ig</span>
+			<a href="#" aria-label="Ir para a página do Facebook">f</a>
+			<a href="#" aria-label="Ir para a página do Twitter">t</a>
+			<a href="#" aria-label="Ir para a página do LinkedIn">in</a>
+			<a href="#" aria-label="Ir para a página do Instagram">ig</a>
 		</div>
 
-		<!-- Modal trigger inacessível -->
 		<div style="margin:15px 0;">
-			<span class="modal-trigger" onclick="alert('Modal aberto!')">Abrir termos e condições</span>
+			<button type="button" class="modal-trigger" aria-haspopup="dialog" aria-expanded="false">Abrir termos e condições</button>
 		</div>
 
-		<!-- Imagens não otimizadas e sem lazy loading -->
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 2</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat.</div>
-			<img src="https://placehold.co/2000x1000" style="width:100%;">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/2000x1000" alt="Imagem descritiva da Seção 2" width="2000" height="1000" loading="lazy">
+			<button class="botao" type="button" aria-label="Detalhes da Seção 2">&#9733;</button>
+		</section>
 
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 3</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat.</div>
-			<img src="https://placehold.co/2000x1000" style="width:100%;">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/2000x1000" alt="Imagem descritiva da Seção 3" width="2000" height="1000" loading="lazy">
+			<button class="botao" type="button" aria-label="Detalhes da Seção 3">&#9733;</button>
+		</section>
 
-		<!-- Texto com fonte personalizada que pode ficar invisível durante o carregamento -->
 		<div class="custom-font-text">
-			Este texto usa uma fonte personalizada que pode ficar invisível durante o carregamento.
+			Este texto usa uma fonte personalizada que, se carregada, usaria `font-display: swap` para evitar texto invisível durante o carregamento.
 		</div>
 
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 4</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat.</div>
-			<img src="https://placehold.co/2000x1000" style="width:100%;">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/2000x1000" alt="Imagem descritiva da Seção 4" width="2000" height="1000" loading="lazy">
+			<button class="botao" type="button" aria-label="Detalhes da Seção 4">&#9733;</button>
+		</section>
 
-		<!-- Iframe de terceiros sem lazy loading -->
 		<div style="margin:20px 0;">
 			<div>Mapa do Google:</div>
-			<iframe src="about:blank" width="600" height="450" style="border:0;" allowfullscreen="" loading="eager"></iframe>
+			<iframe
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.44372958742!2d-46.63419798444383!3d-23.55052006733235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a210d7a4b03%3A0x6d1f9a2b5e2d1c!2sS%C3%A3o%20Paulo%2C%20State%20of%20S%C3%A3o%20Paulo%2C%20Brazil!5e0!3m2!1sen!2sus!4v1678912345678!5m2!1sen!2sus"
+				width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" title="Localização da nossa empresa no mapa do Google"></iframe>
 		</div>
 
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 5</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/800x300" alt="Imagem descritiva da Seção 5" width="800" height="300" loading="lazy">
+			<button class="botao" type="button" aria-label="Detalhes da Seção 5">&#9733;</button>
+		</section>
 
-
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 6</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/800x300" alt="Imagem descritiva da Seção 6" width="800" height="300" loading="lazy">
+			<button class="botao" type="button" aria-label="Detalhes da Seção 6">&#9733;</button>
+		</section>
 
-
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 7</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/800x300" alt="Imagem descritiva da Seção 7" width="800" height="300" loading="lazy">
+			<button class="botao" type="button" aria-label="Detalhes da Seção 7">&#9733;</button>
+		</section>
 
-
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 8</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/800x300" alt="Imagem descritiva da Seção 8" width="800" height="300" loading="lazy">
+			<button class="botao" type="button" aria-label="Detalhes da Seção 8">&#9733;</button>
+		</section>
 
-
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 9</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/800x300" alt="Imagem descritiva da Seção 9" width="800" height="300" loading="lazy">
+			<button class="botao" type="button" aria-label="Detalhes da Seção 9">&#9733;</button>
+		</section>
 
-
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 10</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/800x300" alt="Imagem descritiva da Seção 10" width="800" height="300" loading="lazy">
+			<button class="botao" type="button" aria-label="Detalhes da Seção 10">&#9733;</button>
+		</section>
 
-
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 11</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/800x300" alt="Imagem descritiva da Seção 11" width="800" height="300" loading="lazy">
+			<button class="botao" type="button" aria-label="Detalhes da Seção 11">&#9733;</button>
+		</section>
 
-
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 12</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/800x300" alt="Imagem descritiva da Seção 12" width="800" height="300" loading="lazy">
+			<button class="botao" type="button" aria-label="Detalhes da Seção 12">&#9733;</button>
+		</section>
 
-
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 13</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/800x300" alt="Imagem descritiva da Seção 13" width="800" height="300" loading="lazy">
+			<button class="botao" type="button" aria-label="Detalhes da Seção 13">&#9733;</button>
+		</section>
 
-
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 14</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/800x300" alt="Imagem descritiva da Seção 14" width="800" height="300" loading="lazy">
+			<button class="botao" type="button" aria-label="Detalhes da Seção 14">&#9733;</button>
+		</section>
 
-
-		<div class="bloco">
+		<section class="bloco">
 			<h4>Seção 15</h4>
 			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
-			<button class="botao">&#9733;</button>
-		</div>
+			<img src="https://placehold.co/800x300" alt="Imagem descritiva da Seção 15" width="800" height="300" loading="lazy">
+			<button class="botao" type="button" aria-label="Detalhes da Seção 15">&#9733;</button>
+		</section>
 
-		<div class="form">
+		<form class="form">
 			<h5>Entre em contato</h5>
-			<input type="text" placeholder="Nome completo">
-			<input type="email" placeholder="E-mail">
-			<input type="text" placeholder="Assunto">
-			<button class="botao">&#10148;</button>
-		</div>
+			<label for="nomeCompleto">Nome completo:</label>
+			<input type="text" id="nomeCompleto" placeholder="Seu nome completo" autocomplete="name">
+			<label for="emailContato">E-mail:</label>
+			<input type="email" id="emailContato" placeholder="seu.email@exemplo.com" autocomplete="email">
+			<label for="assunto">Assunto:</label>
+			<input type="text" id="assunto" placeholder="Assunto da mensagem">
+			<button class="botao" type="submit" aria-label="Enviar mensagem">&#10148;</button>
+		</form>
 
-		<div id="rodape">
+		<footer id="rodape">
 			Todos os direitos reservados &copy; 2025
-		</div>
-	</div>
-	
-	<!-- Adicionando um mapa sem acessibilidade -->
+		</footer>
+	</main>
+
 	<div style="margin:20px;">
 		<div>Nossa localização:</div>
-		<img src="https://placehold.co/600x300/ccc/999?text=Mapa">
+		<img src="https://placehold.co/600x300/ccc/999?text=Mapa" alt="Mapa mostrando a localização da empresa" width="600" height="300" loading="lazy">
 	</div>
-	
-	<!-- Tabela inacessível -->
+
 	<div style="margin:20px;">
-		<div>Horário de funcionamento:</div>
-		<table style="border-collapse:collapse; width:100%; font-size:10px; color:#999;">
-			<tr style="background:#d5d5d5;">
-				<td style="padding:5px;">Segunda</td>
-				<td style="padding:5px;">9h - 18h</td>
+		<table role="table">
+			<caption>Horário de funcionamento</caption>
+			<tr role="rowgroup">
+				<th role="columnheader">Dia da Semana</th>
+				<th role="columnheader">Horário</th>
 			</tr>
-			<tr style="background:#e0e0e0;">
-				<td style="padding:5px;">Terça</td>
-				<td style="padding:5px;">9h - 18h</td>
+			<tr role="row">
+				<td role="cell">Segunda</td>
+				<td role="cell">9h - 18h</td>
 			</tr>
-			<tr style="background:#d5d5d5;">
-				<td style="padding:5px;">Quarta</td>
-				<td style="padding:5px;">9h - 18h</td>
+			<tr role="row">
+				<td role="cell">Terça</td>
+				<td role="cell">9h - 18h</td>
 			</tr>
-			<tr style="background:#e0e0e0;">
-				<td style="padding:5px;">Quinta</td>
-				<td style="padding:5px;">9h - 18h</td>
+			<tr role="row">
+				<td role="cell">Quarta</td>
+				<td role="cell">9h - 18h</td>
 			</tr>
-			<tr style="background:#d5d5d5;">
-				<td style="padding:5px;">Sexta</td>
-				<td style="padding:5px;">9h - 18h</td>
+			<tr role="row">
+				<td role="cell">Quinta</td>
+				<td role="cell">9h - 18h</td>
 			</tr>
-			<tr style="background:#e0e0e0;">
-				<td style="padding:5px;">Sábado</td>
-				<td style="padding:5px;">9h - 18h</td>
+			<tr role="row">
+				<td role="cell">Sexta</td>
+				<td role="cell">9h - 18h</td>
 			</tr>
-			<tr style="background:#d5d5d5;">
-				<td style="padding:5px;">Domingo</td>
-				<td style="padding:5px;">9h - 18h</td>
+			<tr role="row">
+				<td role="cell">Sábado</td>
+				<td role="cell">9h - 18h</td>
+			</tr>
+			<tr role="row">
+				<td role="cell">Domingo</td>
+				<td role="cell">9h - 18h</td>
 			</tr>
 		</table>
 	</div>
