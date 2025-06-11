@@ -27,8 +27,7 @@
 
 ---
 
-## 💡 Observação
+## Results
 
-Se desejar, posso seguir otimizando os **componentes restantes** (carrossel, tabs, modais, vídeos, mapas, etc.) com foco em **acessibilidade avançada** e uso de **ARIA roles**.
+![image](https://github.com/user-attachments/assets/a32376ac-b570-47aa-b366-9fdb1b802783)
 
-Deseja isso agora?
