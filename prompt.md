@@ -22,4 +22,4 @@ Além disso, identifique problemas de performance que afetam a acessibilidade:
 - Uso de GIFs em vez de vídeos
 - Recursos não carregados com lazy loading
 
-Após a otimização, explique detalhadamente as mudanças que você fez e por que cada mudança específica contribui para a melhoria da acessibilidade. Use exemplos claros e seja conciso.
+Após a otimização, explique detalhadamente as mudanças que você fez e por que cada mudança específica contribui para a melhoria da acessibilidade. Use exemplos claros e seja conciso. Não esqueça de me retornar o novo index.html com acessibilidade e performance melhorada.
