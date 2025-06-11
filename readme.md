@@ -99,6 +99,12 @@ O site otimizado incorpora as seguintes mudanças:
 
 - **HTML Semântico:** Uso de `<nav>`, `<main>`, `<section>`, `<footer>`.
 - **Acessibilidade no Conteúdo:** Atributos `alt` em todas as imagens, `label`s associados a campos de formulário, elementos interativos convertidos para `<a>` ou `<button>`, atributos ARIA adicionados a componentes complexos, aumento da área de clique, `tabindex="0"` e `role` adicionados, `<h1>` oculto para título principal, e `<caption>` na tabela com atributos `role`.
+
+
+## Results
+
+![image](https://github.com/user-attachments/assets/cf254617-3661-437f-a358-75ab8d5edfd2)
+
 - **CSS para Acessibilidade:** Ajustes de contraste em múltiplas classes, estilos `:focus` para todos os elementos interativos, e criação da classe `sr-only`.
 - **Otimização de Performance:** Atributos `width` e `height` em imagens, `loading="lazy"` para imagens e iframes, remoção de `will-change: transform;` desnecessário, remoção de script síncrono, e otimização do carregamento de fontes web.
 
