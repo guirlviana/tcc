@@ -204,7 +204,51 @@
 		.tooltip:hover .tooltip-text {
 			visibility: visible;
 		}
+		
+		/* Estilos adicionais com problemas de performance */
+		@font-face {
+			font-family: 'CustomFont';
+			src: url('https://example.com/fonts/customfont.woff2');
+			font-display: block; /* Causa FOIT - Flash of Invisible Text */
+		}
+		
+		.custom-font-text {
+			font-family: 'CustomFont', sans-serif;
+		}
+		
+		.animated-element {
+			width: 100px;
+			height: 100px;
+			background-color: #ccc;
+			animation: pulse 2s infinite;
+			will-change: transform; /* Uso desnecessário */
+		}
+		
+		@keyframes pulse {
+			0% { transform: scale(1); }
+			50% { transform: scale(1.1); }
+			100% { transform: scale(1); }
+		}
+		
+		.large-image-container {
+			margin: 20px 0;
+		}
+		
+		.large-image-container img {
+			width: 100%;
+			height: auto;
+		}
+		
+		.animated-gif-container {
+			margin: 20px 0;
+		}
 	</style>
+	<!-- Webfonts carregadas de forma ineficiente -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+	<!-- JavaScript legado -->
+	<script>
+		document.write('<script src="https://example.com/legacy-script.js"><\/script>');
+	</script>
 </head>
 
 <body>
@@ -253,6 +297,19 @@
 				Conteúdo da tab ativa. Clique nas tabs acima para navegar.
 			</div>
 		</div>
+
+		<!-- Imagem não otimizada e sem dimensões adequadas -->
+		<div class="large-image-container">
+			<img src="https://placehold.co/3000x2000" style="width:100%;">
+		</div>
+
+		<!-- GIF animado em vez de vídeo -->
+		<div class="animated-gif-container">
+			<img src="https://placehold.co/800x600/ccc/999?text=Animated+GIF" style="width:100%;">
+		</div>
+
+		<!-- Animação não otimizada -->
+		<div class="animated-element"></div>
 
 		<div class="bloco">
 			<h4>Seção 1</h4>
@@ -330,29 +387,38 @@
 			<span class="modal-trigger" onclick="alert('Modal aberto!')">Abrir termos e condições</span>
 		</div>
 
+		<!-- Imagens não otimizadas e sem lazy loading -->
 		<div class="bloco">
 			<h4>Seção 2</h4>
-			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
+			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat.</div>
+			<img src="https://placehold.co/2000x1000" style="width:100%;">
 			<button class="botao">&#9733;</button>
 		</div>
-
 
 		<div class="bloco">
 			<h4>Seção 3</h4>
-			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
+			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat.</div>
+			<img src="https://placehold.co/2000x1000" style="width:100%;">
 			<button class="botao">&#9733;</button>
 		</div>
 
+		<!-- Texto com fonte personalizada que pode ficar invisível durante o carregamento -->
+		<div class="custom-font-text">
+			Este texto usa uma fonte personalizada que pode ficar invisível durante o carregamento.
+		</div>
 
 		<div class="bloco">
 			<h4>Seção 4</h4>
-			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat. Integer consequat, felis nec dignissim commodo.</div>
-			<img src="https://placehold.co/800x300">
+			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec turpis ut nulla eleifend placerat.</div>
+			<img src="https://placehold.co/2000x1000" style="width:100%;">
 			<button class="botao">&#9733;</button>
 		</div>
 
+		<!-- Iframe de terceiros sem lazy loading -->
+		<div style="margin:20px 0;">
+			<div>Mapa do Google:</div>
+			<iframe src="about:blank" width="600" height="450" style="border:0;" allowfullscreen="" loading="eager"></iframe>
+		</div>
 
 		<div class="bloco">
 			<h4>Seção 5</h4>
@@ -440,7 +506,6 @@
 			<img src="https://placehold.co/800x300">
 			<button class="botao">&#9733;</button>
 		</div>
-
 
 		<div class="form">
 			<h5>Entre em contato</h5>
