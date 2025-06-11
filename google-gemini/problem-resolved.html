@@ -2,154 +2,160 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Notícias do Futuro</title> <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
-            line-height: 1.6;
-        }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog - Notícias do Futuro</title>
+	<style>
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f4f7f6;
+			color: #333;
+			line-height: 1.6;
+		}
 
-        header {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
+		header {
+			background-color: #2c3e50;
+			color: #fff;
+			padding: 20px 0;
+			text-align: center;
+		}
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
+		header h1 {
+			margin: 0;
+			font-size: 2.5em;
+		}
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
+		nav ul {
+			list-style: none;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			margin-top: 10px;
+		}
 
-        nav ul li {
-            margin: 0 15px;
-        }
+		nav ul li {
+			margin: 0 15px;
+		}
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            /* Adicionado para foco visível */
-            outline: 2px solid transparent;
-            outline-offset: 2px;
-            transition: outline-color 0.2s ease-in-out;
-        }
+		nav ul li a {
+			color: #fff;
+			text-decoration: none;
+			font-weight: bold;
+			/* Adicionado para foco visível */
+			outline: 2px solid transparent;
+			outline-offset: 2px;
+			transition: outline-color 0.2s ease-in-out;
+		}
 
-        nav ul li a:focus {
-            outline-color: #3498db;
-        }
+		nav ul li a:focus {
+			outline-color: #3498db;
+		}
 
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
+		.container {
+			max-width: 900px;
+			margin: 20px auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			border-radius: 8px;
+		}
 
-        .article {
-            margin-bottom: 30px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
-        }
+		.article {
+			margin-bottom: 30px;
+			border-bottom: 1px solid #eee;
+			padding-bottom: 20px;
+		}
 
-        .article:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
+		.article:last-child {
+			border-bottom: none;
+			margin-bottom: 0;
+		}
 
-        .article img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
+		.article img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 5px;
+			margin-bottom: 15px;
+		}
 
-        .btn {
-            background-color: #3498db;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            text-decoration: none;
-            /* Adicionado para foco visível */
-            outline: 2px solid transparent;
-            outline-offset: 2px;
-            transition: outline-color 0.2s ease-in-out;
-        }
+		.btn {
+			background-color: #3498db;
+			color: #fff;
+			padding: 10px 15px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 1em;
+			text-decoration: none;
+			/* Adicionado para foco visível */
+			outline: 2px solid transparent;
+			outline-offset: 2px;
+			transition: outline-color 0.2s ease-in-out;
+		}
 
-        .btn:hover {
-            background-color: #2980b9;
-        }
+		.btn:hover {
+			background-color: #2980b9;
+		}
 
-        .btn:focus {
-            outline-color: #2c3e50; /* Cor de foco diferente para melhor contraste */
-        }
+		.btn:focus {
+			outline-color: #2c3e50;
+			/* Cor de foco diferente para melhor contraste */
+		}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            background-color: #34495e;
-            color: #ecf0f1;
-        }
-    </style>
+		footer {
+			text-align: center;
+			padding: 20px;
+			margin-top: 30px;
+			background-color: #34495e;
+			color: #ecf0f1;
+		}
+	</style>
 </head>
 
 <body>
-    <header>
-        <h1>Notícias do Futuro</h1>
-        <nav aria-label="Menu principal"> <ul>
-                <li><a href="#main-content">Início</a></li> <li><a href="#">Artigos</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+	<header>
+		<h1>Notícias do Futuro</h1>
+		<nav aria-label="Menu principal">
+			<ul>
+				<li><a href="#main-content">Início</a></li>
+				<li><a href="#">Artigos</a></li>
+				<li><a href="#">Sobre</a></li>
+				<li><a href="#">Contato</a></li>
+			</ul>
+		</nav>
+	</header>
 
-    <main id="main-content"> <h2>Últimas Publicações</h2>
+	<main id="main-content">
+		<h2>Últimas Publicações</h2>
 
-        <article class="article"> <h3>Inteligência Artificial Transforma a Medicina</h3>
-            <p>A IA está revolucionando diagnósticos e tratamentos. Confira os avanços mais recentes.</p>
-            <img src="https://via.placeholder.com/800x400/7f8c8d/ffffff?text=Tecnologia+e+Saúde"
-                alt="Gráfico abstrato em tons de azul e cinza representando inovação em saúde, com ícones de coração e engrenagens."
-                width="800" height="400">
-            <p>Uma imagem ilustrativa sobre o impacto da tecnologia na área da saúde.</p>
+		<article class="article">
+			<h3>Inteligência Artificial Transforma a Medicina</h3>
+			<p>A IA está revolucionando diagnósticos e tratamentos. Confira os avanços mais recentes.</p>
+			<img src="https://via.placeholder.com/800x400/7f8c8d/ffffff?text=Tecnologia+e+Saúde"
+				alt="Gráfico abstrato em tons de azul e cinza representando inovação em saúde, com ícones de coração e engrenagens." width="800" height="400">
+			<p>Uma imagem ilustrativa sobre o impacto da tecnologia na área da saúde.</p>
 
-            <button type="button" class="btn">
-                Leia Mais <span aria-hidden="true">&#x2192;</span>
-            </button>
-        </article>
+			<button type="button" class="btn">
+				Leia Mais <span aria-hidden="true">&#x2192;</span>
+			</button>
+		</article>
 
-        <article class="article"> <h3>Avanços na Sustentabilidade com IA</h3>
-            <p>Novas soluções impulsionadas por IA para um planeta mais verde.</p>
-            <ul>
-                <li>Energia Renovável</li>
-                <li>Gestão de Resíduos</li>
-                <li>Agricultura Inteligente</li>
-            </ul>
-        </article>
-    </main>
+		<article class="article">
+			<h3>Avanços na Sustentabilidade com IA</h3>
+			<p>Novas soluções impulsionadas por IA para um planeta mais verde.</p>
+			<ul>
+				<li>Energia Renovável</li>
+				<li>Gestão de Resíduos</li>
+				<li>Agricultura Inteligente</li>
+			</ul>
+		</article>
+	</main>
 
-    <footer>
-        <p>&copy; 2025 Notícias do Futuro. Todos os direitos reservados.</p>
-    </footer>
+	<footer>
+		<p>&copy; 2025 Notícias do Futuro. Todos os direitos reservados.</p>
+	</footer>
 </body>
 
 </html>
