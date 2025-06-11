@@ -51,6 +51,36 @@
 			width: 300px;
 			height: 25px;
 		}
+		
+		/* Estilos com baixo contraste adicionais */
+		.destaque {
+			background-color: #c9c9c9;
+			color: #a0a0a0;
+			padding: 10px;
+			font-size: 11px;
+		}
+		
+		.mini-menu {
+			background-color: #e0e0e0;
+			padding: 5px;
+		}
+		
+		.mini-menu span {
+			color: #b8b8b8;
+			margin: 0 10px;
+			cursor: pointer;
+		}
+		
+		.popup {
+			position: fixed;
+			top: 50px;
+			right: 50px;
+			background: #d5d5d5;
+			color: #999;
+			padding: 15px;
+			font-size: 10px;
+			box-shadow: 0 0 5px rgba(0,0,0,0.1);
+		}
 	</style>
 </head>
 
@@ -62,9 +92,22 @@
 		<div>Serviços</div>
 		<div>Contato</div>
 	</div>
+	
+	<div class="mini-menu">
+		<span onclick="alert('Clicou!')">Opção 1</span>
+		<span onclick="alert('Clicou!')">Opção 2</span>
+		<span onclick="alert('Clicou!')">Opção 3</span>
+	</div>
+
+	<div class="popup">
+		Aceite nossos cookies para melhor experiência!
+		<button onclick="this.parentNode.style.display='none'">x</button>
+	</div>
 
 	<div class="conteudo">
-
+		<div class="destaque">
+			PROMOÇÃO ESPECIAL - Confira nossas ofertas limitadas antes que acabem!
+		</div>
 
 		<div class="bloco">
 			<h4>Seção 1</h4>
@@ -73,6 +116,28 @@
 			<button class="botao">&#9733;</button>
 		</div>
 
+		<!-- Novo bloco com problemas de acessibilidade -->
+		<div class="bloco">
+			<h4>Novidades</h4>
+			<div>Confira nosso novo produto revolucionário que vai mudar sua vida!</div>
+			<img src="https://placehold.co/800x300">
+			<div style="display:flex; gap:10px;">
+				<button style="background:#ddd; border:none; color:#999; padding:5px;">Comprar</button>
+				<button style="background:#ddd; border:none; color:#999; padding:5px;">+</button>
+			</div>
+		</div>
+
+		<!-- Formulário sem labels adequados -->
+		<div class="form">
+			<h5>Newsletter</h5>
+			<input type="text" placeholder="Nome">
+			<input type="email" placeholder="Email">
+			<input type="checkbox"> Aceito receber novidades
+			<button style="background:#ccc; color:#999; border:none; padding:5px;">Enviar</button>
+		</div>
+
+		<!-- Restante dos blocos originais... -->
+		<!-- ... -->
 
 		<div class="bloco">
 			<h4>Seção 2</h4>
@@ -197,7 +262,12 @@
 		<div id="rodape">
 			Todos os direitos reservados &copy; 2025
 		</div>
-
+	</div>
+	
+	<!-- Adicionando um mapa sem acessibilidade -->
+	<div style="margin:20px;">
+		<div>Nossa localização:</div>
+		<img src="https://placehold.co/600x300/ccc/999?text=Mapa">
 	</div>
 </body>
 
